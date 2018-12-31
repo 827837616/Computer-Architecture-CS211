@@ -1,0 +1,110 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NodeN{
+int Value;
+struct NodeN* next;
+};
+
+struct NodeN* Insert(struct NodeN* Top, int A);
+
+struct NodeN* Insert(struct NodeN* Top, int A){
+struct NodeN* Before = NULL;
+struct NodeN* Present = Top;
+struct NodeN* Size = (struct NodeN*) malloc(sizeof(struct NodeN));
+Size->Value = A;
+Size->next = NULL;
+while(Present != NULL){
+if(A < Present->Value) //found a place to insert
+break;
+else if(A == Present->Value) //duplicate
+return Top;
+Before = Present;
+Present = Present->next;
+}
+Size->next = Present;
+if(Before != NULL)
+Before->next = Size;
+else
+Top = Size;
+return Top;
+}
+
+struct NodeN* Remove(struct NodeN* Top, int A);
+
+struct NodeN* Remove(struct NodeN* Top, int A){
+struct NodeN* Before = NULL;
+struct NodeN* Present = Top;
+while(Present != NULL){
+if(A < Present->Value)
+return Top;
+else if(A == Present->Value)
+break;
+Before = Present;
+Present = Present->next;
+}
+if(Present == NULL) //did not find
+return Top;
+if(Before == NULL) //remove 1st NodeN
+Top = Present->next;
+else
+Before->next = Present->next;
+free(Present);
+return Top;
+}
+
+void Traverse(struct NodeN* Top);
+
+void Traverse(struct NodeN* Top) {
+struct NodeN* Present = Top;
+if(Top != NULL){
+printf("%d", Present->Value);
+Present = Present->next;
+while(Present != NULL){
+printf("\t%d", Present->Value);
+Present = Present->next;
+}
+}
+printf("\n");
+}
+
+
+int Height(struct NodeN* Top);
+
+int Height(struct NodeN* Top){
+struct NodeN* Present = Top;
+int X = 0;
+while(Present != NULL){
+X++;
+Present = Present->next;
+}
+return X;
+}
+
+
+int main(int argc, char* argv[]){
+
+FILE *fp = NULL;
+struct NodeN* Top = NULL;
+int A;
+char C;
+
+fp = fopen(argv[1], "r");
+if(fp == NULL){
+printf("error\n");
+return 1;
+}
+fscanf(fp, "%c %d", &C, &A);
+while(!feof(fp)){
+if(C == 'i')
+Top = Insert(Top, A);
+else if(C == 'd')
+Top = Remove(Top, A);
+fscanf(fp, "%c %d", &C, &A);
+}
+fclose(fp);
+printf("%d\n",Height(Top));
+Traverse(Top);
+}
+
+
