@@ -1,0 +1,22 @@
+Dev Patel
+RUID - 179007223
+Netid - drp145
+
+Pa4 - Cache Stimulator
+
+Report:-
+
+	For solving this assignment, I have written a code which uses both FIFO and LRU (EXTRA CREDIT) replacement policy for caches and to solve the testcases. I declared a typedef object named CacheMemory which has 3 parameters to maintain ValidBit, Set Index and the Policy for deciding which Policy to use to solve the assignment. I also wrote separate methods for checking if a block is empty and also method to transform the bits in order to differentiate Tag, Index and Blockoffset. There are also methods to do Read, Write and the Fetching process and Pre-Fetching. And specially I have used type “unsigned long long” so that it can cover anything even more than 64 bytes.
+
+	The main data structure used is a 2-dimensional array which maintains the track of set index and also the policy while running the program. The declared array is the main data structure in the code to find the position of memory stored in cache based on set index. There are three separate counters declared in the code to maintain the count of the read and write along with separate counter for the hit and the miss. The read counter is updated every time when a fetcher is used but the write counter is specially used for in case of LRU policy to maintain the record of which blocks are used so that it is useful to find the least one and kick it out when new one comes in for the extra credit problem.
+
+Observation - 
+	
+	Cache prefetching is a technique used to increase the performance of computers by fetching the information from original storage well in advance to use it whenever it is needed. After using prefetch we see that count of memory​ ​write​ ​is always ​​the​ ​same and memory read counts are increased with prefetch,​ but there are significant chances for more hits and very few chances of misses as the information is already being brought up in caches. Prefetch is only called when there is a miss. It reduces number of cold misses. Due to prefetch the processor has to do less work to every time go to the original memory and get the block in the cache which increases the performance of the processor and decreases the run time of the program. The less the run time the better and well developed the processor.
+
+I have done the Extra Credit so please grade my program according to that.
+
+Thank You!
+
+
+
