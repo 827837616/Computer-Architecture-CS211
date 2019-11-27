@@ -102,7 +102,7 @@ Cache=Creator(SIndex,5,Associativity);
 
 int Comp1 = 2;  
 //while(fscanf(File, %c %llx", &CharC, &Location)==Comp1) {
-while(fscanf(File, "%*x: %c %llx", &CharC, &Location)==Comp1)  {
+while(fscanf(File, "%c %llx", &CharC, &Location)==Comp1)  {
 unsigned long long Transform1 = Transformation(Location, Temp1);
 unsigned long long W = (Transform1)&sm;
 unsigned long long O = Location>> TFinal;
@@ -137,7 +137,7 @@ CheckifEmpty(SIndex,0,Associativity);
 
 int Comp2 = 2;	
 //while(fscanf(File, %c %llx", &CharC, &Location)==Comp2) {
-while(fscanf(File, "%*x: %c %llx", &CharC, &Location)==Comp2) {
+while(fscanf(File, "%c %llx", &CharC, &Location)==Comp2) {
 unsigned long long Transform2 = Transformation(Location, Temp1);
 unsigned long long W = (Transform2)&sm;
 unsigned long long O = Location>>TFinal;
@@ -211,7 +211,7 @@ Cache=Creator(SIndex,5,Associativity);
 
 int Comp1 = 2;
 //while(fscanf(File, %c %llx", &CharC, &Location)==Comp1) {
-while(fscanf(File, "%*x: %c %llx", &CharC, &Location)==Comp1)  {
+while(fscanf(File, "%c %llx", &CharC, &Location)==Comp1)  {
 unsigned long long Transform1 = Transformation(Location, Temp1);
 unsigned long long W = (Transform1)&sm;
 unsigned long long O = Location>>TFinal;
@@ -247,7 +247,7 @@ CheckifEmpty(SIndex,0,Associativity);
 
 int Comp2 = 2;
 //while(fscanf(File, %c %llx", &CharC, &Location)==Comp2) {
-while(fscanf(File, "%*x: %c %llx", &CharC, &Location)==Comp2) {
+while(fscanf(File, "%c %llx", &CharC, &Location)==Comp2) {
 unsigned long long Transform2 = Transformation(Location, Temp1);
 unsigned long long W = (Transform2)&sm;
 unsigned long long O = Location>>TFinal;
@@ -290,5 +290,3 @@ exit(0);
 //free(CacheMiss);
 return 0;
 }
-
-
